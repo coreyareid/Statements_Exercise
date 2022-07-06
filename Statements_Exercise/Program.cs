@@ -4,45 +4,53 @@ static void GuessMyNumber()
 {
     Console.WriteLine("Try to guess what number I\'m thinking of between 1 and 10!");
 
+
     var r = new Random();
     var favNumber = r.Next(1, 10);
     var userInput = int.Parse(Console.ReadLine());
 
-    if (userInput == favNumber)
+    while (userInput != favNumber)
     {
-        Console.WriteLine("You Guessed my number correctly!");
-    }
-    else if (userInput < favNumber && userInput >= 1)
-    {
-        Console.WriteLine("The number you guessed is too low.");
-    }
-    else if (userInput > favNumber && userInput <= 10)
-    {
-        Console.WriteLine("The number you guessed is too high.");
-    }
-    else if (userInput <= 0 || userInput >= 11)
-    {
-        Console.WriteLine("You did not guess a number between 1 and 10.");
-    }
-    else
-    {
-        Console.WriteLine("SYSTEM MALFUNCTION!");
-    }
+       userInput = int.Parse(Console.ReadLine());
+        if (userInput == favNumber)
+        {
+            Console.WriteLine("\n You Guessed my number correctly!");
+        }
+        else if (userInput < favNumber && userInput >= 1)
+        {
+            Console.WriteLine("The number you guessed is too low, try again.");
 
+        }
+        else if (userInput > favNumber && userInput <= 10)
+        {
+            Console.WriteLine("The number you guessed is too high, try again.");
+
+        }
+        else if (userInput <= 0 || userInput >= 11)
+        {
+            Console.WriteLine("You did not guess a number between 1 and 10, try again.");
+
+        }
+        else
+        {
+            Console.WriteLine("SYSTEM MALFUNCTION!");
+        }
+    }
 }
-
 GuessMyNumber();
+
 
 // Exercise 2
 
 static void SchoolSubject()
 {
-    Console.WriteLine("What is your favorite school subject?");
+    Console.WriteLine("\n\n What is your favorite school subject?");
 
     var answer = Convert.ToString(Console.ReadLine());
 
     switch (answer)
     {
+
         case "math":
             Console.WriteLine("Oh, so you like numbers?");
             string reply = Console.ReadLine();
@@ -56,6 +64,7 @@ static void SchoolSubject()
             }
             break;
 
+
         case "english":
             Console.WriteLine("Do you enjoy reading and writing?");
             string reply2 = Console.ReadLine();
@@ -68,6 +77,7 @@ static void SchoolSubject()
                 Console.WriteLine("Then it must be about social skills.");
             }
             break;
+
 
         case "history":
             Console.WriteLine("History is important to learn from past mistakes.");
