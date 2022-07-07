@@ -11,7 +11,7 @@ namespace Statements_Exercise;
         var r = new Random();
         var favNumber = r.Next(1, 10);
         bool tryAgain = true;
-        //var userInput = int.Parse(Console.ReadLine());
+        
         do
         {
             var userInput = int.Parse(Console.ReadLine());
@@ -46,7 +46,7 @@ namespace Statements_Exercise;
     {
         Console.WriteLine("\n\n What is your favorite school subject?");
 
-        var answer = Convert.ToString(Console.ReadLine());
+        string answer = Console.ReadLine().ToLower();
 
         switch (answer)
         {
