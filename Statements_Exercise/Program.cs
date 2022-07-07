@@ -7,14 +7,17 @@ static void GuessMyNumber()
 
     var r = new Random();
     var favNumber = r.Next(1, 10);
-    var userInput = int.Parse(Console.ReadLine());
-
-    while (userInput != favNumber)
+    bool tryAgain = true;
+    //var userInput = int.Parse(Console.ReadLine());
+    do
     {
-       userInput = int.Parse(Console.ReadLine());
+       var userInput = int.Parse(Console.ReadLine());
+
         if (userInput == favNumber)
         {
             Console.WriteLine("\n You Guessed my number correctly!");
+            tryAgain = false;
+
         }
         else if (userInput < favNumber && userInput >= 1)
         {
@@ -29,14 +32,11 @@ static void GuessMyNumber()
         else if (userInput <= 0 || userInput >= 11)
         {
             Console.WriteLine("You did not guess a number between 1 and 10, try again.");
+        }
 
-        }
-        else
-        {
-            Console.WriteLine("SYSTEM MALFUNCTION!");
-        }
-    }
+    } while (tryAgain);
 }
+
 GuessMyNumber();
 
 
